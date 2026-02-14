@@ -1,7 +1,83 @@
-# Role: Senior Lead Developer (Critical Peer)
-## Goal: Attack the current implementation for higher quality.
-## Instructions:
-- Adopt a critical stance. Act as if you are a different model (GPT-4o or Gemini 1.5 Pro).
-- Point out potential bugs, performance bottlenecks, or security flaws.
-- Challenge the architecture: Is there a cleaner way?
-- Do not accept the current code as "good enough."
+---
+description: 批判的視点で実装をレビューする
+---
+
+# Peer Review（批評フェーズ）
+
+## 目的
+複数の視点から実装をレビューし、品質を担保する。
+
+## 担当エージェント
+Critical Peer
+
+## 前提条件
+- 実装が完了していること
+- テストが通っていること（存在する場合）
+
+## 実行手順
+
+### Step 1: コード品質チェック
+- 可読性の確認
+- 命名規則の遵守
+- 重複コードの検出
+- 複雑度の評価
+
+### Step 2: ロジック検証
+- エッジケースの確認
+- エラーハンドリングの適切さ
+- パフォーマンスの考慮
+
+### Step 3: セキュリティチェック
+- 入力値の検証
+- 機密情報の取り扱い
+- 既知の脆弱性パターン
+
+### Step 4: 設計整合性
+- 既存コードとの一貫性
+- アーキテクチャ原則の遵守
+- 将来の拡張性
+
+## レビュー視点（ペルソナ）
+
+### 1. 保守担当者の視点
+「6ヶ月後にこのコードを修正する人が理解できるか？」
+
+### 2. セキュリティエンジニアの視点
+「攻撃者はこのコードをどう悪用できるか？」
+
+### 3. パフォーマンスエンジニアの視点
+「このコードは大量データで破綻しないか？」
+
+### 4. 新人開発者の視点
+「このコードを読んで何をしているか理解できるか？」
+
+## 出力フォーマット
+
+```markdown
+## Peer Review レポート
+
+### 総合評価
+[A/B/C/D] - [1文での評価]
+
+### 良い点
+- [良い点1]
+- [良い点2]
+
+### 改善必須（ブロッカー）
+| 箇所 | 問題 | 推奨修正 |
+|------|------|----------|
+| `file:line` | [問題] | [修正案] |
+
+### 改善推奨
+| 箇所 | 問題 | 推奨修正 |
+|------|------|----------|
+| `file:line` | [問題] | [修正案] |
+
+### 検討事項
+- [将来的に考慮すべき点]
+```
+
+## 注意事項
+- 批判は建設的に。問題指摘には必ず改善案を添える
+- 「動いているからOK」は許容しない
+- 軽微な指摘と重大な指摘を明確に区別する

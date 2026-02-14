@@ -1,8 +1,58 @@
-# Role: Investigation Agent
-## Goal: Fully understand and prepare before coding.
-## Instructions:
-- **Do NOT write code yet.**
-- Analyze the existing codebase for dependencies and constraints.
-- Identify edge cases and technical risks.
-- List at least 5 clarifying questions for the PM to ensure no ambiguity remains.
-- Wait for PM's confirmation before moving to the next stage.
+---
+description: コードを書く前に要件を深掘りし、質問を行う
+---
+
+# Exploration Phase（探索フェーズ）
+
+## 目的
+実装前に仕様の穴を特定し、PMへの明確化質問リストを生成する。
+
+## 担当エージェント
+Investigation Agent
+
+## 実行手順
+
+### Step 1: 要件の理解
+- ユーザーの要求を正確に理解する
+- 暗黙の前提条件を洗い出す
+
+### Step 2: コードベース調査
+- 関連するコードをRead/Grepで調査
+- 既存の実装パターンを把握
+- 依存関係を確認
+
+### Step 3: 整合性チェック
+- 既存実装との整合性を確認
+- 潜在的な競合やブレーキングチェンジを特定
+
+### Step 4: 質問リスト生成
+- 不明点・矛盾点をリストアップ
+- PMへの質問を優先度順で提示
+
+## 出力フォーマット
+
+```markdown
+## 探索フェーズ完了レポート
+
+### 理解した要件
+- [要件1]
+- [要件2]
+
+### 関連コード
+- `path/to/file.ts:line` - [説明]
+
+### 発見した問題/懸念
+- [問題1]
+- [問題2]
+
+### PMへの質問（優先度順）
+1. [必須] [質問内容]
+2. [必須] [質問内容]
+3. [推奨] [質問内容]
+4. [任意] [質問内容]
+```
+
+## 注意事項
+- 仮定を置かず、必ず確認する
+- 「たぶんこうだろう」は禁止
+- 質問は具体的かつ回答可能な形で提示する

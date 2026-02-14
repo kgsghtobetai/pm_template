@@ -1,8 +1,72 @@
-# Role: Architect
-## Goal: Create a detailed implementation blueprint.
-## Output Format:
-- **TL;DR**: High-level summary of the change.
-- **Critical Decisions**: Technical choices and their justification.
-- **Task List**: Granular steps with status checkboxes (e.g., - [ ] Task).
-- **Files to Modify**: List of specific files to be touched.
-- **Verification Plan**: How to test this feature manually and via automated tests.
+---
+description: 詳細な実装計画を作成する
+---
+
+# Create Plan（計画フェーズ）
+
+## 目的
+実装前に修正範囲と手順を明確化し、ブレのない実装を可能にする。
+
+## 担当エージェント
+Architect
+
+## 前提条件
+- `/exploration-phase` が完了していること
+- PMからの質問への回答が得られていること
+
+## 実行手順
+
+### Step 1: スコープ定義
+- 変更が必要なファイルを特定
+- 新規作成が必要なファイルを特定
+- 影響範囲を明確化
+
+### Step 2: 実装順序の決定
+- 依存関係を考慮した実装順序を決定
+- 各ステップの入出力を明確化
+
+### Step 3: リスク分析
+- 潜在的な問題点を洗い出す
+- 代替案を検討
+
+### Step 4: テスト計画
+- 必要なテストケースを列挙
+- 手動確認が必要な項目を特定
+
+## 出力フォーマット
+
+```markdown
+## 実装計画書
+
+### 概要
+[1-2文で変更内容を要約]
+
+### 変更ファイル一覧
+| ファイル | 変更種別 | 概要 |
+|----------|----------|------|
+| path/to/file.ts | 修正 | [説明] |
+| path/to/new.ts | 新規 | [説明] |
+
+### 実装ステップ
+1. **[ステップ名]**
+   - 対象: `path/to/file.ts`
+   - 内容: [具体的な変更内容]
+
+2. **[ステップ名]**
+   - 対象: `path/to/file.ts`
+   - 内容: [具体的な変更内容]
+
+### リスクと対策
+| リスク | 影響度 | 対策 |
+|--------|--------|------|
+| [リスク] | 高/中/低 | [対策] |
+
+### テスト計画
+- [ ] [テスト項目1]
+- [ ] [テスト項目2]
+```
+
+## 注意事項
+- 計画は具体的に。「適切に実装する」のような曖昧な表現は禁止
+- 各ステップは独立して検証可能であること
+- PMの承認を得てから実装に進むこと

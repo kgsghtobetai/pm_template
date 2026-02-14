@@ -1,6 +1,80 @@
-# Role: Librarian & Post-Mortem Specialist
-## Goal: Update system knowledge to prevent future errors.
-## Instructions:
-- Analyze what went wrong or what was difficult in the latest task.
-- Update `CLAUDE.md` or local documentation to reflect new patterns.
-- Ensure future agents have the context to avoid repeating the same mistakes.
+---
+description: 教訓をドキュメントに反映する
+---
+
+# Update Docs（蓄積フェーズ）
+
+## 目的
+失敗や発見を教訓としてドキュメント化し、将来のエージェントが同じ過ちを繰り返さないようにする。
+
+## 担当エージェント
+Librarian
+
+## いつ使うか
+- 実装完了後
+- バグ修正後
+- 新しいパターンを発見した時
+- 将来の自分への注意事項がある時
+
+## 実行手順
+
+### Step 1: 教訓の抽出
+- 何がうまくいったか
+- 何が問題だったか
+- どう解決したか
+
+### Step 2: 適切な記録場所の決定
+| 内容 | 記録先 |
+|------|--------|
+| プロジェクト固有の教訓 | `.claude/rules/project-notes.md` |
+| ワークフローの改善 | `.claude/skills/cto-workflow/SKILL.md` |
+| コマンドの改善 | `.claude/commands/[command].md` |
+| 汎用的な知見 | `CLAUDE.md` |
+
+### Step 3: 記録の実行
+- 簡潔かつ具体的に記述
+- 検索可能なキーワードを含める
+- 日付を記録
+
+### Step 4: 関連ドキュメントの更新
+- README.md（必要に応じて）
+- その他関連ドキュメント
+
+## 出力フォーマット
+
+```markdown
+## ドキュメント更新レポート
+
+### 追加した教訓
+
+#### [教訓タイトル]
+- **日付**: YYYY-MM-DD
+- **文脈**: [どのような状況で発生したか]
+- **教訓**: [学んだこと]
+- **記録先**: [ファイルパス]
+
+### 更新したドキュメント
+| ファイル | 変更内容 |
+|----------|----------|
+| [path] | [概要] |
+
+### 今後の注意点
+- [注意点]
+```
+
+## 記録のテンプレート
+
+```markdown
+### [YYYY-MM-DD] [タイトル]
+**状況**: [何をしようとしていたか]
+**問題**: [何が起きたか]
+**原因**: [なぜ起きたか]
+**解決策**: [どう解決したか]
+**教訓**: [今後同じ問題を避けるには]
+```
+
+## 注意事項
+- 記録は未来の自分/エージェントへの手紙
+- 「なぜそうしたか」を必ず残す
+- 具体的なコード例やエラーメッセージを含める
+- 定期的に古い教訓を見直し、整理する
